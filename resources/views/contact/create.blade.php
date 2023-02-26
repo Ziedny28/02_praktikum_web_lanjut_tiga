@@ -15,16 +15,16 @@
     <form action="/contact" method='post'>
         @csrf
         <div class="form-floating mb-3">
-            <input type="email" name='email' class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name='email' class="form-control" id="floatingInput" placeholder="name@example.com" required autofocus>
             <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" name='title' class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" name='title' class="form-control" id="floatingInput" placeholder="name@example.com" required>
             <label for="floatingInput">Title</label>
         </div>
         <div class="form-floating">
             <textarea class="form-control" name='body'placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
+                style="height: 100px" required></textarea>
             <label for="floatingTextarea2">Insert Body Here</label>
         </div>
         <button type="submit" class="btn btn-primary">submit</button>

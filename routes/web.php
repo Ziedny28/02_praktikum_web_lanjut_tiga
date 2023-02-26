@@ -18,20 +18,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/home', 'home');
+Route::view('/home', 'home')->name('home');
 
-Route::get('/product/{slug}', function ($slug) {
-    return view('product', ['slug' => $slug]);
+Route::prefix('product')->group(function () {
+    Route::get('product-pertama', function () {
+        return view('product', ['data' => 'product pertama']);
+    });
+    Route::get('product-kedua', function () {
+        return view('product', ['data' => 'product kedua']);
+    });
 });
 
 Route::get('/news/{slug}', function ($slug) {
     return view('news', ['slug' => $slug]);
+})->name('news');;
+
+
+Route::prefix('program')->group(function () {
+    Route::get('program-pertama', function () {
+        return view('program', ['data' => 'program pertama']);
+    });
+    Route::get('program-kedua', function () {
+        return view('program', ['data' => 'program kedua']);
+    });
 });
 
-Route::get('/program/{slug}', function ($slug) {
-    return view('program', ['slug' => $slug]);
-});
-
-Route::view('/about-us', 'about-us');
+Route::view('/about-us', 'about-us')->name('about-us');;
 
 Route::resource('/contact', ContactController::class);
